@@ -23,7 +23,7 @@ repository               : "michael-keinprecht/michael-keinprecht.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "portrait_keinprecht.jpg"
   name             : "Michael Keinprecht"
   pronouns         : "he/him"  
   bio              : "PhD student"
