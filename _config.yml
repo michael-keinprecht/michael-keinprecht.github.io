@@ -30,7 +30,8 @@ author:
   location         : "Vienna, Austria"
   employer         : "WU Vienna"
   uri              : # URL
-  email            : "michael.keinprecht@wu.ac.at" 
+  email            : "michael.keinprecht@wu.ac.at"
+  email2           : "michael.keinprecht@proton.me"
 
   # Academic websites
   academia         : # URL
