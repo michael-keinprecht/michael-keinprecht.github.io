@@ -12,7 +12,8 @@ main:
     url: /research/
       
   - title: "CV"
-    url: "/files/CV_Keinprecht.pdf"
+    url: /cv/
+    #url: "/files/CV_Keinprecht.pdf"
 
   - title: "Teaching"
     url: /teaching/    
