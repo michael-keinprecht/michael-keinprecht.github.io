@@ -1,0 +1,61 @@
+---
+layout: archive
+title: "Conferences, schools & visits"
+permalink: /map/
+author_profile: false
+---
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<div id="travel-map" style="height: 550px; width: 100%;"></div>
+
+<script>
+  var places = [
+    { name: "Santiago de Chile", lat: -33.4489, lng: -70.6693, events: [
+      { year: 2026, text: "Workshop: Structural drivers of gender differences in careers - the example of STEM" } ] },
+    { name: "Venice", lat: 45.4408, lng: 12.3155, events: [
+      { year: 2026, text: "Summer school and Workshop on Inequality and Vulnerability" } ] },
+    { name: "Vienna", lat: 48.2082, lng: 16.3738, events: [
+      { year: 2026, text: "Austrian Experimental Economics Workshop" },
+      { year: 2025, text: "Scientific writing course" } ] },
+    { name: "Bergen", lat: 60.3913, lng: 5.3221, events: [
+      { year: 2026, text: "4 weeks research stay at the NHH" },
+      { year: 2025, text: "PhD-course: Incorporating Psychology into Economic Models" } ] },
+    { name: "Maastricht", lat: 50.8514, lng: 5.6910, events: [
+      { year: 2025, text: "Summer school on Epistemic Game Theory" } ] },
+    { name: "Brno", lat: 49.1951, lng: 16.6068, events: [
+      { year: 2025, text: "Summer school on implementing reproducible experimental designs" },
+      { year: 2025, text: "ESA European meeting" } ] },
+    { name: "Hamburg", lat: 53.5511, lng: 9.9937, events: [
+      { year: 2025, text: "GfeW Jahrestagung" } ] },
+    { name: "Krems", lat: 48.4098, lng: 15.6144, events: [
+      { year: 2025, text: "Annual Conference of the Austrian Economic Association (NOeG)" } ] },
+    { name: "Berlin", lat: 52.5200, lng: 13.4050, events: [
+      { year: 2024, text: "Winter school on Taxes and Experiments" } ] },
+    { name: "Seefeld", lat: 47.3294, lng: 11.1883, events: [
+      { year: 2024, text: "Winter school on Credence Goods, Incentives and Behavior" } ] },
+    { name: "Innsbruck", lat: 47.2692, lng: 11.4041, events: [
+      { year: 2024, text: "Summer school on Open Science including a replication game" } ] },
+    { name: "Rethymno", lat: 35.3649, lng: 24.4823, events: [
+      { year: 2024, text: "EER summer school in experimental and behavioral economics" } ] },
+    { name: "Stavanger", lat: 58.9700, lng: 5.7331, events: [
+      { year: 2024, text: "PhD-course: RCT in social sciences" } ] }
+  ];
+
+  var map = L.map('travel-map');
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var markers = places.map(function (p) {
+    var html = "<b>" + p.name + "</b>";
+    p.events.forEach(function (e) {
+      html += "<br><b>" + e.year + ":</b> " + e.text;
+    });
+    return L.marker([p.lat, p.lng]).addTo(map).bindPopup(html, { maxWidth: 280 });
+  });
+
+  map.fitBounds(L.featureGroup(markers).getBounds().pad(0.15));
+</script>
